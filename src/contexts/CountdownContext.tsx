@@ -18,7 +18,7 @@ let countdownTimeout: NodeJS.Timeout
 export const CountdownContext = createContext({} as CountdownContextData)
 
 export function CountdownProvider({children}: CountdownProviderProps){
-  const [time, setTime] = useState(0.1 * 60)
+  const [time, setTime] = useState(25 * 60)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)
   const [hadBreak, setHadBreak] = useState(false)
@@ -31,20 +31,20 @@ export function CountdownProvider({children}: CountdownProviderProps){
     }else if(isActive && time === 0){
       setHasFinished(true)
       setIsActive(false)
+      new Audio('/src/assets/notification.mp3').play()
     }
   }, [isActive, time])
 
   useEffect(() =>{
     if(hasFinished && !hadBreak){
-      setTime(0.05 * 60)
+      setTime(5 * 60)
       setIsActive(true)
       setHasFinished(false)
       setHadBreak(true)
       const delay = new Date().getTime() + 2000
       while(parseInt(new Date().toString()) < delay){}
-      console.log(delay)
     }else if(hasFinished && time === 0){
-      setTime(0.1 * 60)
+      setTime(25 * 60)
       setHasFinished(false)
       setHadBreak(false)
     }
@@ -56,7 +56,7 @@ export function CountdownProvider({children}: CountdownProviderProps){
 
   function stopCountdown(){
     clearTimeout(countdownTimeout)
-    setTime(0.1 * 60)
+    setTime(25 * 60)
     setIsActive(false)
     setHasFinished(false)
     setHadBreak(false)

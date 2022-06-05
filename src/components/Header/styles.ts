@@ -5,6 +5,7 @@ export const Header = styled.header`
   align-items: center;
   justify-content: center;
   gap: .5rem;
+  
   background-color: var(--color-1);
   width: 100%;
   color: tomato;

@@ -43,7 +43,7 @@ export const TimeWrapper = styled.div`
 
 export const ProgressBar = styled.div<{isActive: boolean, hadBreak: boolean}>`
   background-color: transparent;
-  border: 2px solid #ccc;
+  border: 2px solid var(--color-2);
   border-radius: 50%;
   width: 200px;
   height: 200px;
