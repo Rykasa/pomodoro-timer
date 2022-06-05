@@ -15,16 +15,30 @@ export const TimerHeading = styled.h2`
   letter-spacing: .1rem;
   text-transform: capitalize;
   font-size: 1.75rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
+
+  @media (max-width: 800px){
+    font-size: 1.5rem;
+  }
+`;
+
+export const BreakTitle = styled.span`
+  color: #fff;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
 `;
 
 export const TimeWrapper = styled.div`
-  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 6rem;
+
+  @media (max-width: 800px){
+    margin: 5rem;
+  }
 `;
 
 export const ProgressBar = styled.div<{isActive: boolean, hadBreak: boolean}>`
@@ -34,6 +48,11 @@ export const ProgressBar = styled.div<{isActive: boolean, hadBreak: boolean}>`
   width: 200px;
   height: 200px;
   position: absolute;
+
+  @media (max-width: 800px){
+    width: 150px;
+    height: 150px;
+  }
 
   :before{
     content: '';
@@ -61,15 +80,14 @@ export const ProgressBar = styled.div<{isActive: boolean, hadBreak: boolean}>`
 
 export const Countdown = styled.span`
   color: #fff;
-  z-index: 10;
 `;
 
 export const BtnContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
   margin-top: 2rem;
+
+  @media (max-width: 800px){
+    margin-top: 1rem;
+  }
 `;
 
 export const Button = styled.button`
@@ -92,7 +110,8 @@ export const Button = styled.button`
     opacity: 0.9;
   }
 
-  :hover{
+  &:hover,
+  &.active{
     border-color: #fff;
 
     .play-icon{

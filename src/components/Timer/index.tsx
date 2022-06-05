@@ -10,7 +10,7 @@ export function Timer(){
   return(
     <C.Container>
           <C.TimerHeading>Timer</C.TimerHeading>
-          {hadBreak && 'Take a break'}
+          {hadBreak && <C.BreakTitle>Take a break</C.BreakTitle>}
           <C.TimeWrapper>
             <C.ProgressBar isActive={isActive} hadBreak={hadBreak} />        
             <C.Countdown>
@@ -19,12 +19,12 @@ export function Timer(){
           </C.TimeWrapper>
         <C.BtnContainer>
             {isActive ? (
-              <C.Button onClick={stopCountdown}>
+              <C.Button onClick={stopCountdown}  className={isActive ? 'active' : ''}>
                 <FiX />
               </C.Button>
             ) : (
-              <C.Button onClick={startCountdown}>
-                <FiPlay className="play-icon" />
+              <C.Button onClick={startCountdown} className={isActive ? 'active' : ''}>
+                <FiPlay className='play-icon' />
               </C.Button>
             )}
         </C.BtnContainer>
