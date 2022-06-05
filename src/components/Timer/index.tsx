@@ -1,4 +1,5 @@
 import { FiPlay, FiX } from "react-icons/fi"
+import { Countdown } from "../Countdown";
 import * as C from './styles';
 
 export function Timer(){
@@ -7,7 +8,9 @@ export function Timer(){
           <C.TimerHeading>Timer</C.TimerHeading>
           <C.TimeWrapper>
             <C.ProgressBar />
-            <C.Countdown>26:04</C.Countdown>
+            <C.Countdown>
+              <Countdown />
+            </C.Countdown>
           </C.TimeWrapper>
         <C.BtnContainer>
           <C.Button>

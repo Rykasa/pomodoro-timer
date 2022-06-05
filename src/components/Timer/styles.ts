@@ -38,6 +38,7 @@ export const ProgressBar = styled.div`
 
 export const Countdown = styled.span`
   color: #fff;
+  z-index: 10;
 `;
 
 export const BtnContainer = styled.div`
