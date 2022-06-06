@@ -23,6 +23,10 @@ export function CountdownProvider({children}: CountdownProviderProps){
   const [hasFinished, setHasFinished] = useState(false)
   const [hadBreak, setHadBreak] = useState(false)
 
+  useEffect(() =>{
+    Notification.requestPermission()
+  })
+
   useEffect(()=>{
     if(isActive && time > 0){
       countdownTimeout = setTimeout(() =>{
@@ -32,6 +36,11 @@ export function CountdownProvider({children}: CountdownProviderProps){
       setHasFinished(true)
       setIsActive(false)
       new Audio('/notification.mp3').play()
+      if(Notification.permission === 'granted'){
+        new Notification('Interval have finished', {
+          body: 'Take a short break',
+        })
+      }
     }
   }, [isActive, time])
 
