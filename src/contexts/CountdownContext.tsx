@@ -31,7 +31,7 @@ export function CountdownProvider({children}: CountdownProviderProps){
     }else if(isActive && time === 0){
       setHasFinished(true)
       setIsActive(false)
-      new Audio('/src/assets/notification.mp3').play()
+      new Audio('/notification.mp3').play()
     }
   }, [isActive, time])
 
