@@ -1,4 +1,5 @@
 import { useEffect, useState, createContext, ReactNode } from "react"
+import notificationAudio from '../assets/notification.mp3'
 
 interface CountdownProviderProps {
   children: ReactNode;
@@ -18,7 +19,7 @@ let countdownTimeout: NodeJS.Timeout
 export const CountdownContext = createContext({} as CountdownContextData)
 
 export function CountdownProvider({children}: CountdownProviderProps){
-  const [time, setTime] = useState(25 * 60)
+  const [time, setTime] = useState(0.1 * 60)
   const [isActive, setIsActive] = useState(false)
   const [hasFinished, setHasFinished] = useState(false)
   const [hadBreak, setHadBreak] = useState(false)
@@ -35,7 +36,8 @@ export function CountdownProvider({children}: CountdownProviderProps){
     }else if(isActive && time === 0){
       setHasFinished(true)
       setIsActive(false)
-      new Audio('/notification.mp3').play()
+      const audio = new Audio(notificationAudio)
+      audio.play()
       if(Notification.permission === 'granted'){
         new Notification('Interval have finished', {
           body: 'Take a short break',
