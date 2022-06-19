@@ -21,8 +21,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body{
     font-family: 'Noto sans', sans-serif;
-    /* background-color: var(--primary-color-2); */
-    background-color: aliceblue;
+    background-color: var(--primary-color-2);
     min-height: 100vh;
   }
 `;
